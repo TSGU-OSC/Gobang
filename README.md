@@ -1,37 +1,20 @@
-# Gobang
+# Gobang(五子棋游戏)
 
-#### 介绍
-基于C++,EasyX的五子棋游戏
+这是一个用C++和EasyX图形库写的五子棋游戏。通过该游戏，您可以与电脑或其他人进行对弈。
 
-#### 软件架构
-软件架构说明
+## 安装要求
+在运行本游戏前，您需要先安装EasyX图形库。EasyX是一套基于C语言的简易图形库，具有简单易用、文档齐全等特点。您可以从EasyX官网下载并安装：EasyX官网。
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## 运行游戏
+下载本项目到本地：git clone https://github.com/JackLau1222/Gobang.git
+打开Visual Studio或其他支持C++编程的IDE。
+在IDE中打开main.cpp文件，并编译运行程序。
+您可以选择开始游戏，与电脑或其他玩家对弈。
+如果您希望修改游戏界面或规则，请查看代码并进行相应修改。
+## 注意事项
+本游戏仅供娱乐，不可用于商业用途。
+如有任何问题或建议，请提交Issue或联系作者。
+## 版权信息
+本游戏的代码使用MIT许可证进行开源，请遵循许可证规定的条款使用。
+--------
+感谢您的使用！如果您喜欢本游戏，请不要忘记为我们的项目点赞和分享。
