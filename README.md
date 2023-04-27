@@ -2,6 +2,10 @@
 
 这是一个用C++和EasyX图形库写的五子棋游戏。通过该游戏，您可以与电脑或其他人进行对弈。
 
+工程文件提交到 https://gitee.com/TSGU-OAOSS/gobang/tree/master/project_demo
+
+命名方式参照 [gobang_Jack_Lau](project_demo/gobang_Jack_Lau)
+
 ## 安装要求
 在运行本游戏前，您需要先安装EasyX图形库。EasyX是一套基于C语言的简易图形库，具有简单易用、文档齐全等特点。您可以从EasyX官网下载并安装：EasyX官网。
 
