@@ -6,7 +6,10 @@
 在运行本游戏前，您需要先安装EasyX图形库。EasyX是一套基于C语言的简易图形库，具有简单易用、文档齐全等特点。您可以从EasyX官网下载并安装：EasyX官网。
 
 ## 运行游戏
-下载本项目到本地：git clone https://github.com/JackLau1222/Gobang.git
+下载本项目到本地：
+```
+git clone https://github.com/JackLau1222/Gobang.git
+```
 打开Visual Studio或其他支持C++编程的IDE。
 在IDE中打开main.cpp文件，并编译运行程序。
 您可以选择开始游戏，与电脑或其他玩家对弈。
