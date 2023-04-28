@@ -1,5 +1,5 @@
 # 五子棋项目文件收集
 
-## [Jack_Lau](/project_Jack_Lau)
+## [Jack_Lau](/project_demo/gobang_Jack_Lau)
 
-## [thework](/OOPBasedChessGame)
+## [thework](/project_demo/OOPBasedChessGame)
