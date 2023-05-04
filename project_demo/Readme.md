@@ -4,4 +4,4 @@
 
 ### [thework](/project_demo/OOPBasedChessGame)
 
-### [village](/project/gobang_village)
+### [village](/project_demo/gobang_village)
