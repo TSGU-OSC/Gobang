@@ -16,3 +16,5 @@
 
 ### [gede](/project_demo/gobang_Gede)
 
+### [jimmy](/project_demo/gobang_jimmy)
+
