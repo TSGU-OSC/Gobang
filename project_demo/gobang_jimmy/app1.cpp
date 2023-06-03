@@ -9,6 +9,7 @@ using namespace std;
 #define SPACE (3*GRID_W)
 
 void Chongkai();
+bool judge2(int r,int c);
 bool judge(int r, int c);
 enum Chess
 {
@@ -25,17 +26,19 @@ public:
 	//bool isShow;
 	int player;		
 }p1 = {-10,-10,Black};
-void qizi()
+void qizi()//ç”»æ£‹å­çš„å‡½æ•°
 {
 	for (int i = 0; i < 15; i++)
 	{
 		for (int j = 0; j < 15; j++)
 		{
+			//ç”»é»‘æ£‹
 			if (map[i][j] == Black)
 			{
 				setfillcolor(BLACK);
 				solidcircle(j * GRID_W + SPACE, i * GRID_W + SPACE, 10);
 			}
+			//ç”»ç™½æ£‹
 			else if (map[i][j] == White)
 			{
 				setfillcolor(WHITE);
@@ -44,6 +47,7 @@ void qizi()
 		}
 	}
 }
+//ç”»æ£‹ç›˜
 void Draw()
 {
 	setlinecolor(BLACK);
@@ -55,10 +59,10 @@ void Draw()
 
 	}
 	setlinestyle(PS_SOLID, 2);
-	rectangle(SPACE, SPACE, SPACE + 14 * GRID_W, SPACE + 14 * GRID_W);
-	settextstyle(20, 0, "¿¬Ìå");
+	rectangle(SPACE, SPACE, SPACE + 14 * GRID_W, SPACE + 14 * GRID_W);//åŠ ç²—å››è¾¹
+	settextstyle(20, 0, "æ¥·ä½“");
 	settextcolor(BLACK);
-	outtextxy(450, 35, "»ÚÆå");
+	outtextxy(450, 35, "æ‚”æ£‹");
 }
 /*void mouseMoveMsg(ExMessage* msg)
 {
@@ -83,7 +87,7 @@ void Draw()
 
 void mousePressMsg(ExMessage* msg)
 {
-	
+	//è½å­çŸ«æ­£
 	for (int i = 0; i < ROW; i++)
 	{
 		for (int j = 0; j < COL; j++)
@@ -98,9 +102,10 @@ void mousePressMsg(ExMessage* msg)
 			}
 		}
 	}
+	//æ‚”æ£‹
 	if (msg->x <= 490 && msg->x >= 450 && msg->y <= 55 && msg->y >= 35)
 	{
-		cout << "»ÚÆåÁË" << endl;
+		cout << "æ‚”æ£‹äº†" << endl;
 		map[p1.row][p1.col] = 0;
 		clearcircle(p1.col * GRID_W + SPACE, p1.row * GRID_W + SPACE, 10);
 		p1.player = (p1.player == Black ? White : Black);
@@ -121,7 +126,7 @@ void mousePressMsg(ExMessage* msg)
 			if (judge(p1.row, p1.col))
 			{
 				int msgboxID;
-				msgboxID =MessageBox(GetHWnd(), "ÄãÓ®ÁË£¡ÊÇ·ñÖØĞÂ¿ªÊ¼£¿", "hit", MB_OKCANCEL);
+				msgboxID =MessageBox(GetHWnd(), "ä½ èµ¢äº†ï¼æ˜¯å¦é‡æ–°å¼€å§‹ï¼Ÿ", "hit", MB_OKCANCEL);
 				switch (msgboxID)
 				{
 				case IDOK:
@@ -137,6 +142,24 @@ void mousePressMsg(ExMessage* msg)
 				}
 				//exit(0);
 			}
+			if (judge2(p1.row, p1.col))
+			{
+				int msgboxID;
+				msgboxID = MessageBox(GetHWnd(), "å¹³å±€ï¼æ˜¯å¦é‡æ–°å¼€å§‹ï¼Ÿ", "hit", MB_OKCANCEL);
+				switch (msgboxID)
+				{
+				case IDOK:
+					Chongkai();
+					p1.player = White;
+					clearrectangle(SPACE, SPACE, 14 * GRID_W + SPACE, 14 * GRID_W + SPACE);
+					break;
+				case IDCANCEL:
+					exit(0);
+					break;
+				default:
+					break;
+				}
+			}
 			cout << "msgx=" << msg->x << "msgy=" << msg->y << endl;
 			if (msg->x > SPACE && msg->x < 14 * GRID_W + SPACE && msg->y > SPACE && msg->y < 14 * GRID_W + SPACE)
 			{
@@ -146,6 +169,7 @@ void mousePressMsg(ExMessage* msg)
 		}
 	}
 }
+//åˆ¤æ–­èƒœè´Ÿ
 bool judge(int r,int c)
 {
 	int who = p1.player;
@@ -157,7 +181,7 @@ bool judge(int r,int c)
 			if (map[i][j] == who && map[i][j + 1] == who && map[i][j + 2] == who && map[i][j + 3] == who && map[i][j + 4] == who)
 			{
 				qizi();
-				cout << "ºáÏòÎå×Ó" << endl;
+				cout << "æ¨ªå‘äº”å­" << endl;
 				return true;
 			}
 		}
@@ -169,7 +193,7 @@ bool judge(int r,int c)
 			if (map[i][j] == who && map[i + 1][j] == who && map[i + 2][j] == who && map[i + 3][j] == who && map[i + 4][j] == who)
 			{
 				qizi();
-				cout << "×İÏòÎå×Ó" << endl;
+				cout << "çºµå‘äº”å­" << endl;
 				return true;
 			}
 		}
@@ -183,7 +207,7 @@ bool judge(int r,int c)
 				if (map[n][m] == who && map[n + 1][m + 1] == who && map[n + 2][m + 2]==who && map[n + 3][m + 3] == who && map[n + 4][m + 4] == who)
 				{
 					qizi();
-					cout << "×óĞ±Îå×Ó" << endl;
+					cout << "å·¦æ–œäº”å­" << endl;
 					return true;
 				}
 			}
@@ -198,7 +222,7 @@ bool judge(int r,int c)
 				if (map[n][m] == who && map[n - 1][m+1] == who && map[n - 2][m + 2] == who && map[n - 3][m + 3] == who && map[n - 4][m + 4] == who)
 				{
 					qizi();
-					cout << "ÓÒĞ±Îå×Ó" << endl;
+					cout << "å³æ–œäº”å­" << endl;
 					return true;
 				}
 			}
@@ -207,10 +231,30 @@ bool judge(int r,int c)
 	
 	return false;
 }
+//åˆ¤æ–­æ˜¯å¦å¹³å±€
+bool judge2(int r,int c)
+{
+	int t = 0;
+	for (int i = 0; i < 15; i++)
+	{
+		for (int j = 0; j < 15; j++)
+		{
+			if (map[i][j] != 0)
+			{
+				t++;
+			}
+			if (t == 225)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
 void tupian()
 {
 	IMAGE mag;
-	loadimage(&mag, "Í¼Æ¬.jpg");
+	loadimage(&mag, "å›¾ç‰‡.jpg");
 	putimage(0, 0, &mag);
 }
 void Chongkai()
@@ -225,13 +269,16 @@ void Chongkai()
 }
 int main()
 {
+	//åˆ›å»ºçª—å£
 	initgraph(600, 500,EX_SHOWCONSOLE);
 	//LoadResource();
+	//è®¾ç½®èƒŒæ™¯é¢œè‰²
 	setbkcolor(GREEN);
 	cleardevice();
 	//tupian();
-	mciSendString("open ´°ÍâµÄ·ç¾°.mp3", 0, 0, 0);
-	mciSendString("play ´°ÍâµÄ·ç¾°.mp3", 0, 0, 0);
+	//è®¾ç½®éŸ³ä¹
+	mciSendString("open çª—å¤–çš„é£æ™¯.mp3", 0, 0, 0);
+	mciSendString("play çª—å¤–çš„é£æ™¯.mp3", 0, 0, 0);
 	Draw();
 	while (true)
 	{
