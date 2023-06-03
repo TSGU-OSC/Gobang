@@ -6,7 +6,7 @@
 
 ### [thework](/project_demo/OOPBasedChessGame)
 
-### [Richardkings](/project_demo/Richardkings)
+### [Richardkings](/project_demo/gobang_Richardkings)
 
 ## 面向过程思想
 
