@@ -5,3 +5,7 @@
 ### [thework](/project_demo/OOPBasedChessGame)
 
 ### [village](/project_demo/gobang_village)
+
+### [gede](/project_demo/gobang_Gede)
+
+### [Richardkings](/project_demo/Richardkings)
