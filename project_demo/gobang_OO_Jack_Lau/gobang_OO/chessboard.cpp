@@ -1,4 +1,4 @@
-﻿#include <graphics.h>
+﻿#include <graphics.h>//easyx头文件
 #include <iostream>
 #include "chessboard.h"
 
@@ -25,21 +25,20 @@ bool chessBoard::checkSubscript(int row, int col)
 void chessBoard::chessBoardInit()
 {
     initgraph((boardSize + 2) * unit, (boardSize + 2) * unit, EX_SHOWCONSOLE); // 初始化图形窗口
-    setbkcolor(GREEN);
-    cleardevice();
+    setbkcolor(GREEN);//设置背景为绿色
+    cleardevice();//更新状态
     HWND hand = GetHWnd();
     SetWindowText(hand, "welcome");
     setlinecolor(BLACK);
-    for (int i = 0; i < boardSize+1; i++)
+    for (int i = 0; i < boardSize+1; i++)//画棋盘
     {
         line(unit, unit * (i + 1), unit * (boardSize + 1), unit * (i + 1));
         line(unit * (i + 1), unit, unit * (i + 1), unit * (boardSize + 1));
     }
 }
 
-void chessBoard::setChess(int color)
+void chessBoard::setChess(int color)//暂不使用
 {
-    
     setfillcolor(WHITE);
     while (1)
     {
@@ -58,7 +57,7 @@ void chessBoard::setChess(int color)
     }
 }
 
-void chessBoard::manSetChess(int color)
+void chessBoard::manSetChess(int color)//暂不使用
 {
     if (color == Black)
         setfillcolor(BLACK);
@@ -89,7 +88,7 @@ void chessBoard::manSetChess(int color)
     
 }
 
-void chessBoard::aiSetChess(int color)
+void chessBoard::aiSetChess(int color)//暂不使用
 {
 
 }
@@ -216,5 +215,4 @@ void chessBoard::reset()
     }
     
     chessBoardInit();
-    countLog = 0;
 }

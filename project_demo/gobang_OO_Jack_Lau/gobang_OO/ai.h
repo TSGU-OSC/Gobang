@@ -5,8 +5,8 @@ class Ai
 {
 private:
 	chessBoard* chessboard;
-	std::vector<std::vector<int>> chessLog;
-	static size_t countLog;
+	std::vector<std::vector<int>> chessLog;//用于存储棋子序号
+	static size_t countLog;//记录棋子数量
 public:
 	Ai();
 
@@ -14,12 +14,13 @@ public:
 
 	void reset();
 
-	void Exe();
+	void Exe();//电脑下棋主函数
 
-	void WriteArrayToLog(int** arr, int size);
+	void WriteArrayToLog(int** arr, int size);//日志文件 用于打印分值表
 
-	void computerSet(int color);
+	void computerSet(int color);//电脑下棋
 
+	//以下为电脑算法
 	int** scoreValueSet(int color);
 
 	int scoreCal(int x, int y, int color);
