@@ -12,8 +12,6 @@
 
 ### [Jack_Lau](/project_demo/gobang_Jack_Lau)
 
-### [village](/project_demo/gobang_village)
-
 ### [gede](/project_demo/gobang_Gede)
 
 ### [jimmy](/project_demo/gobang_jimmy)
