@@ -1,4 +1,0 @@
-﻿  app1.cpp
-D:\Download\gobang-master\gobang-master\project_demo\gobang_jimmy\app1.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\Download\gobang-master\gobang-master\project_demo\gobang_jimmy\app1.cpp(108,11): error C2001: 常量中有换行符
-D:\Download\gobang-master\gobang-master\project_demo\gobang_jimmy\app1.cpp(109,3): error C2146: 语法错误: 缺少“;”(在标识符“map”的前面)
