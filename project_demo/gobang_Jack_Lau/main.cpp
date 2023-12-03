@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <iostream>
 #include <mmsystem.h>
-#pragma comment(lib,"winmm.lib")//å¤„ç†æ¥å£
+#pragma comment(lib,"winmm.lib")//´¦Àí½Ó¿Ú
 
 #include "gobang.h"
 
@@ -11,8 +11,8 @@
 
 void BGM()
 {
-    //æ–‡ä»¶ä¸º.mp3ä¸ºåç¼€æ‰å¯æ’­æ”¾ï¼Œè¦æŠŠéŸ³ä¹æ‹·è´åˆ°é¡¹ç›®æ‰€åœ¨æ–‡ä»¶å¤¹é‡Œ
-    mciSendString(L"open music.mp3", 0, 0, 0);//0ï¼Œ0,0ä¸ºé»˜è®¤è¾“å‡ºæ§åˆ¶å°
+    //ÎÄ¼şÎª.mp3Îªºó×º²Å¿É²¥·Å£¬Òª°ÑÒôÀÖ¿½±´µ½ÏîÄ¿ËùÔÚÎÄ¼ş¼ĞÀï
+    mciSendString(L"open music.mp3", 0, 0, 0);//0£¬0,0ÎªÄ¬ÈÏÊä³ö¿ØÖÆÌ¨
     mciSendString(L"play music.mp3 repeat", 0, 0, 0);
     if (0)
     {
@@ -34,7 +34,7 @@ void Reset()
 
 void BoardPrint()
 {
-    initgraph(512 + u, 512 + u, EX_SHOWCONSOLE); // åˆå§‹åŒ–å›¾å½¢çª—å£
+    initgraph(512 + u, 512 + u, EX_SHOWCONSOLE); // ³õÊ¼»¯Í¼ĞÎ´°¿Ú
     setbkcolor(GREEN);
     cleardevice();
     HWND hand = GetHWnd();
@@ -42,8 +42,8 @@ void BoardPrint()
     setlinecolor(BLACK);
     for (int i = 0; i < 16; i++)
     {
-        line(u, u*(i+1), u  * 16, u*(i+1));
-        line(u*(i+1), u , u*(i+1), u * 16);
+        line(u, u * (i + 1), u * 16, u * (i + 1));
+        line(u * (i + 1), u, u * (i + 1), u * 16);
     }
 }
 
@@ -55,11 +55,11 @@ void BlackSet()
         ExMessage m = getmessage(EX_MOUSE);
         if (m.message == WM_LBUTTONDOWN)
         {
-            
-            if (m.x / u > 0 && m.x / u < 16 && m.y / u > 0 && m.y / u < 16&& gobang[m.x / u - 1][m.y / u - 1] == 0)
+
+            if (m.x / u > 0 && m.x / u < 16 && m.y / u > 0 && m.y / u < 16 && gobang[m.x / u - 1][m.y / u - 1] == 0)
             {
                 gobang[m.x / u - 1][m.y / u - 1] = Black;
-                std::cout <<"BLACK: " << m.x / u - 1 << " " << m.y / u - 1 << " " << gobang[m.x / u - 1][m.y / u - 1] << std::endl;
+                std::cout << "BLACK: " << m.x / u - 1 << " " << m.y / u - 1 << " " << gobang[m.x / u - 1][m.y / u - 1] << std::endl;
                 solidcircle((m.x / u) * u + 16, (m.y / u) * u + 16, 16);
                 return;
             }
@@ -75,14 +75,14 @@ void WhiteSet()
         ExMessage m = getmessage(EX_MOUSE);
         if (m.message == WM_LBUTTONDOWN)
         {
-            if (m.x / u > 0 && m.x / u < 16 && m.y / u > 0 && m.y / u < 16&& gobang[m.x / u - 1][m.y / u - 1]==0)
+            if (m.x / u > 0 && m.x / u < 16 && m.y / u > 0 && m.y / u < 16 && gobang[m.x / u - 1][m.y / u - 1] == 0)
             {
                 gobang[m.x / u - 1][m.y / u - 1] = White;
-                std::cout <<"WHITE " << m.x / u - 1 << " " << m.y / u - 1 << " " << gobang[m.x / u - 1][m.y / u - 1] << std::endl;
+                std::cout << "WHITE " << m.x / u - 1 << " " << m.y / u - 1 << " " << gobang[m.x / u - 1][m.y / u - 1] << std::endl;
                 solidcircle((m.x / u) * u + 16, (m.y / u) * u + 16, 16);
                 return;
             }
-            
+
         }
     }
 }
@@ -95,7 +95,7 @@ int Gobang_Exe(int color)
         for (j = 0; j < 15; j++) {
             if (gobang[i][j] == color) {
 
-                // æ£€æŸ¥è¡Œ
+                // ¼ì²éĞĞ
                 if (j <= 10)
                 {
                     count = 1;
@@ -110,7 +110,7 @@ int Gobang_Exe(int color)
                     if (count == 5) return color;
                 }
 
-                // æ£€æŸ¥åˆ—
+                // ¼ì²éÁĞ
                 if (i <= 10)
                 {
                     count = 1;
@@ -125,7 +125,7 @@ int Gobang_Exe(int color)
                     if (count == 5) return color;
                 }
 
-                // æ£€æŸ¥æ­£æ–œçº¿
+                // ¼ì²éÕıĞ±Ïß
                 if (i <= 10 && j <= 10)
                 {
                     count = 1;
@@ -140,7 +140,7 @@ int Gobang_Exe(int color)
                     if (count == 5) return color;
                 }
 
-                // æ£€æŸ¥åæ–œçº¿
+                // ¼ì²é·´Ğ±Ïß
                 if (i >= 4 && j <= 10)
                 {
                     count = 1;
@@ -157,7 +157,7 @@ int Gobang_Exe(int color)
             }
         }
     }
-    // å¦‚æœæ²¡æœ‰äº”å­è¿ç ï¼Œåˆ™è¿”å›0
+    // Èç¹ûÃ»ÓĞÎå×ÓÁ¬Öé£¬Ôò·µ»Ø0
     return 0;
 }
 
@@ -198,13 +198,13 @@ int EXE()
         if (temporary == 3) { return 3; }
     } while (temporary != 1 && temporary != 2 && temporary != 3);
 
-    if (temporary == 1) 
-    { 
+    if (temporary == 1)
+    {
         printf("black win!\n");
         return 1;
     }
-    if (temporary == 2) 
-    { 
+    if (temporary == 2)
+    {
         printf("white win!\n");
         return 2;
     }
@@ -218,14 +218,14 @@ int main()
     bool tem = false;
     do
     {
-        int log=EXE();
+        int log = EXE();
         HWND hand = GetHWnd();
-        int i=0;
-        if(log==1)
+        int i = 0;
+        if (log == 1)
             i = MessageBox(hand, L"Black win!Do you wanna play it agin?", L"message", MB_YESNO);
-        else if(log==2)
+        else if (log == 2)
             i = MessageBox(hand, L"White win!Do you wanna play it agin?", L"message", MB_YESNO);
-        else if(log==3)
+        else if (log == 3)
             i = MessageBox(hand, L"stalemate!White win!Do you wanna play it agin?", L"message", MB_YESNO);
         if (IDYES == i)
         {
@@ -241,8 +241,8 @@ int main()
             return 0;
         }
     } while (tem);
-    
-    _getch();   
-    closegraph();  
+
+    _getch();
+    closegraph();
     return 0;
 }

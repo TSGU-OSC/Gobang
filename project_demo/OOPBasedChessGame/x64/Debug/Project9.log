@@ -1,0 +1,6 @@
+﻿  chessGame.cpp
+C:\Users\jimmy\source\repos\Project9\chess.hpp(47,1): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\jimmy\source\repos\Project9\chess.hpp(55,1): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\jimmy\source\repos\Project9\chess.hpp(56,1): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\jimmy\source\repos\Project9\chess.hpp(93,1): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  Project9.vcxproj -> C:\Users\jimmy\source\repos\Project9\x64\Debug\Project9.exe
