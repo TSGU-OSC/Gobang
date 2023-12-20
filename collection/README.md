@@ -32,4 +32,4 @@
 
    ```bash
    git clone https://gitee.com/TSGU-OSC/gobang.git
-   
+   gi t
