@@ -16,7 +16,7 @@
 ### 2. 文件夹结构  
   
 * 📂 [**collection文件夹**：](./collection/README.md)这个文件夹用于收集新上传的pr（pull request）。如果你有关于仓库的改进建议或贡献，可以通过pr的方式提交，这些pr会被收集在collection文件夹中。  
-* 📂 [**project_demo文件夹**：](./project_demo/Readme.md)这个文件夹展示了已经写好的五子棋案例。你可以通过这些案例学习如何使用Gobang仓库的代码，以及如何定制和扩展游戏的功能。  
+* 📂 [**project_demo文件夹**：](./project_demo/README.md)这个文件夹展示了已经写好的五子棋案例。你可以通过这些案例学习如何使用Gobang仓库的代码，以及如何定制和扩展游戏的功能。  
   
 ### 3. 运行要求  
   
