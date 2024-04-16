@@ -13,9 +13,9 @@ IMAGE whitechess;
 #define COL 15
 #define GRID_SIZE 39   
 
-int chessMap[15][15];//¼ÇÂ¼Æå×Ó·ÀÖ¹ÖØ¸´ÏÂ×Ó
-int pan[15][15];//¼ÇÂ¼Âä×ÓÇé¿ö
-int scoremap[15][15];//¼ÇÂ¼¸÷µãÆå×ÓÈ¨ÖØÆÀ·Ö
+int chessMap[15][15];//è®°å½•æ£‹å­é˜²æ­¢é‡å¤ä¸‹å­
+int pan[15][15];//è®°å½•è½å­æƒ…å†µ
+int scoremap[15][15];//è®°å½•å„ç‚¹æ£‹å­æƒé‡è¯„åˆ†
 int num = 1;    // Chess_white = -1; Chess_black = 1;
 
 MOUSEMSG m;
@@ -61,7 +61,7 @@ void Chess_init()
 		}
 	
 }
-//ÅĞ¶ÏÊó±êÎ»ÖÃÊÇ·ñÔÚÓĞĞ§Î»ÖÃ
+//åˆ¤æ–­é¼ æ ‡ä½ç½®æ˜¯å¦åœ¨æœ‰æ•ˆä½ç½®
 int  chess_down()
 {
 
@@ -74,9 +74,9 @@ int  chess_down()
 
 int change_piece(int x, int y)
 {
-	if (chessMap[x][y] != 0)//ÓĞ×Ó
+	if (chessMap[x][y] != 0)//æœ‰å­
 		return 0;
-	else //Ã»×ÓµÄ»°¾Í·µ»Ø1²¢¼ÇÂ¼ÏÂÆå
+	else //æ²¡å­çš„è¯å°±è¿”å›1å¹¶è®°å½•ä¸‹æ£‹
 		chessMap[x][y] = num;
 		pan[x][y] = num;
 	return 1;
@@ -86,7 +86,7 @@ void chess_xy(double i,double j)
 	m = GetMouseMsg();
 	double z, c;
 	int x, y;
-	//»ñµÃÊó±êËùÔÚÊı×éÖĞµÄxyÎ»ÖÃ
+	//è·å¾—é¼ æ ‡æ‰€åœ¨æ•°ç»„ä¸­çš„xyä½ç½®
 	z = (i - 220.0) / 39.0;
 	if (z > (int)z + 0.5)
 	{
@@ -106,7 +106,7 @@ void chess_xy(double i,double j)
 		y = (int)c;
 	}
 
-	//ÉèÖÃÌî³äÑÕÉ«
+	//è®¾ç½®å¡«å……é¢œè‰²
 	if (num == 1)
 	{
 		setfillcolor(BLACK);
@@ -116,7 +116,7 @@ void chess_xy(double i,double j)
 		setfillcolor(WHITE);
 	}
 	
-		//ÅĞ¶Ï¸ÃµãÊ¹·ñÓĞÆå×Ó,Ã»ÓĞÔòÏÂÆå
+		//åˆ¤æ–­è¯¥ç‚¹ä½¿å¦æœ‰æ£‹å­,æ²¡æœ‰åˆ™ä¸‹æ£‹
 	
 	if (change_piece(x, y) == 0)
 			return;
@@ -128,12 +128,12 @@ void chess_xy(double i,double j)
 	}
 }
 
-//£¡£¡£¡È¨ÖØ×ßÂ·´æÔÚÎÊÌâ
+//ï¼ï¼ï¼æƒé‡èµ°è·¯å­˜åœ¨é—®é¢˜
 void ai_score()
 {
 	
 
-	//ÆÀ·ÖÇåÁã
+	//è¯„åˆ†æ¸…é›¶
 	for (int i = 0; i < 15; i++)
 	{
 		for (int j = 0; j < 15; j++)
@@ -149,7 +149,7 @@ void ai_score()
 		{
 			if (pan[row][col] != 0)
 				continue;
-			//¡û£¬¨I£¬¡ü£¬¨JËÄ¸ö·½Ïò
+			//â†ï¼Œâ†–ï¼Œâ†‘ï¼Œâ†—å››ä¸ªæ–¹å‘
 			for (int x = -1; x <= 1; x++)
 			{
 				for (int y = -1; y <= 0; y++)
@@ -160,7 +160,7 @@ void ai_score()
 					int blacknum = 0;
 					int whitenum = 0;
 					int emptynum = 0;
-					//¼ÙÉèºÚÆåÂä×Ó¸º4¸ö·½ÏòÂä×Ó
+					//å‡è®¾é»‘æ£‹è½å­è´Ÿ4ä¸ªæ–¹å‘è½å­
 					for (int i = 0; i <= 3; i++)
 					{
 						int currow = row + i * y;
@@ -180,7 +180,7 @@ void ai_score()
 						}
 
 					}
-					//¼ÙÉèºÚÆåÕı4¸ö·½ÏòÂä×Ó
+					//å‡è®¾é»‘æ£‹æ­£4ä¸ªæ–¹å‘è½å­
 					for (int i = 0; i <= 3; i++)
 					{
 						int currow = row - i * y;
@@ -200,7 +200,7 @@ void ai_score()
 							break;
 						}
 					}
-					//È¨ÖØ¸³Öµ
+					//æƒé‡èµ‹å€¼
 					if (blacknum == 1) {
 						scoremap[row][col] += 10;
 					}
@@ -224,7 +224,7 @@ void ai_score()
 						scoremap[row][col] == 20000;
 					}
 
-					//¼ÙÉèbaiÆåÂä×Ó¸º4¸ö·½ÏòÂä×Ó
+					//å‡è®¾baiæ£‹è½å­è´Ÿ4ä¸ªæ–¹å‘è½å­
 					for (int i = 1; i <= 4; i++)
 					{
 						int currow = row + i * y;
@@ -245,7 +245,7 @@ void ai_score()
 						}
 
 					}
-					//¼ÙÉèbaiÆåÕı4¸ö·½ÏòÂä×Ó
+					//å‡è®¾baiæ£‹æ­£4ä¸ªæ–¹å‘è½å­
 					for (int i = 1; i <= 4; i++)
 					{
 						int currow = row - i * y;
@@ -265,7 +265,7 @@ void ai_score()
 							break;
 						}
 					}
-					//È¨ÖØ¸³Öµ
+					//æƒé‡èµ‹å€¼
 					if (whitenum == 0) {
 						scoremap[row][col] += 5;
 					}
@@ -333,7 +333,7 @@ void ai_go()
 int five_chess(int x,int y)
 {
 	int n = 1;
-	/*×óÓÒ*/
+	/*å·¦å³*/
 	for (int i = x - 4; i >= 0 && chessMap[x][y] == chessMap[i][y] && i < x + 4 && i < 15; i++)
 	{
 		n++;
@@ -341,7 +341,7 @@ int five_chess(int x,int y)
 	}
 	if (n >= 5)return 1;
 
-	/*ÉÏÏÂ*/
+	/*ä¸Šä¸‹*/
 	for (int j = y - 4; j >= 0 && chessMap[x][y] == chessMap[x][j] && y < 15; j++)
 	{
 		n++;
@@ -349,7 +349,7 @@ int five_chess(int x,int y)
 	}
 	if (n >= 5)return 1;
 
-	/*×óÉÏÓÒÏÂ*/
+	/*å·¦ä¸Šå³ä¸‹*/
 	for (int i = x - 4, j = y - 4; i >= 0 && j >= 0 && i < 15 && j < 15 && chessMap[x][y] == chessMap[i][j]; i++, j++)
 	{
 		n++;
@@ -357,7 +357,7 @@ int five_chess(int x,int y)
 	}
 	if (n >= 5)return 1;
 
-	/*×óÏÂÓÒÉÏ*/
+	/*å·¦ä¸‹å³ä¸Š*/
 	for (int i = x - 4, j = y + 4; i >= 0 && j <= 15 && i <= 15 && j >= 0 && chessMap[x][y] == chessMap[i][j]; i++, j--)
 	{
 		n++;
@@ -401,7 +401,7 @@ int main()
 		if (check_over() == 1)
 		{
 			settextcolor(RED);
-			settextstyle(42, 20, _T("Á¥Êé"));
+			settextstyle(42, 20, _T("éš¶ä¹¦"));
 			outtextxy(350, 350, _T("YOU WIN!"));
 			system("pause");
 			return 0;
